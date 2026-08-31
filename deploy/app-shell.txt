@@ -1,0 +1,7 @@
+# Git-tracked public shell intent for hosted/student workspaces.
+#
+# Use auto for open-ended app work. If a derived app clearly targets one public
+# shell, set this file to text or graphical. This file is intentionally not an
+# .env file so hosted workers can edit it safely.
+
+text

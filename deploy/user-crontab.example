@@ -1,0 +1,2 @@
+# Run the locked, retryable deploy transaction once per minute with bounded logs.
+* * * * * cd /home/kevinlb/bin/GizmoApp && ALLOW_DEPLOY_ACTIONS=1 XDG_RUNTIME_DIR=/run/user/1001 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus /home/kevinlb/bin/GizmoApp/scripts/run_deploy_cron.sh

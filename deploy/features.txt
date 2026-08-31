@@ -1,0 +1,4 @@
+# Optional public surfaces are off by default.
+#
+# Add only the features the app actually uses, separated by spaces or commas:
+# admin audio machine-learning mapping optimization sample-nodes search

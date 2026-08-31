@@ -1,0 +1,20 @@
+[Unit]
+Description=GizmoApp gunicorn service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/kevinlb/bin/GizmoApp
+EnvironmentFile=/home/kevinlb/bin/GizmoApp/.env
+# Set GIZMOAPP_SHELL=graphical or GIZMOAPP_SHELL=text in .env to choose the served shell.
+# You can also point gunicorn directly at server.wsgi_graphical:app or server.wsgi_text:app.
+ExecStart=/home/kevinlb/bin/GizmoApp/.venv/bin/gunicorn --config /home/kevinlb/bin/GizmoApp/deploy/gunicorn.conf.py server.wsgi:app
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3
+PrivateTmp=true
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=default.target

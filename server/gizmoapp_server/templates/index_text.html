@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{{ app_name }}</title>
+    <meta name="description" content="{{ shell_description }}">
+    <meta name="theme-color" content="{{ theme_color }}">
+    <base href="{{ base_href }}">
+    <link rel="icon" href="{{ icon_url }}" sizes="192x192">
+    <link rel="stylesheet" href="{{ shared_asset_base }}base.css">
+    <link rel="stylesheet" href="{{ asset_base }}styles.css">
+  </head>
+  <body class="shell-body text-shell-body">
+    <div class="app-frame public-frame text-frame">
+      <main class="text-workspace" aria-label="Text workspace">
+        <section class="app-shell" aria-label="Storyline news library">
+          <header class="topbar">
+            <a class="brand" href="."><span class="brand-mark">S</span><span>storyline</span></a>
+            <div class="topbar-actions"><button class="view-tab active" id="library-view">Library</button><button class="view-tab" id="overview-view">Overview</button><button class="view-tab" id="graph-view">Connections</button><button class="theme-button" id="theme-button" type="button" aria-pressed="false">Dark mode</button><button class="icon-button" id="help-button" aria-label="About Storyline">?</button></div>
+          </header>
+          <div class="app-grid">
+            <aside class="library-panel">
+              <div class="eyebrow">YOUR READING MEMORY</div>
+              <div class="library-heading"><h1>Keep the thread.</h1><span id="article-count">5 stories</span></div>
+              <p class="intro">Save what matters. Storyline helps you see what changed, what connects, and what to question.</p>
+                <div class="search-wrap"><span>⌕</span><input id="search-input" type="search" placeholder="Search your library" autocomplete="off"></div>
+                <div class="filter-row" aria-label="Library filters"><button class="filter active" id="all-filter" type="button">All stories</button><button class="filter" id="bookmarked-filter" type="button">Bookmarks <span id="bookmark-count">0</span></button></div>
+               <div class="library-transfer"><span>Move your library</span><div><button id="export-button" type="button">Export JSON</button><button id="import-button" type="button">Import JSON</button><input id="import-input" type="file" accept="application/json,.json" hidden></div></div>
+               <div id="article-list" class="article-list" aria-live="polite"></div>
+              <button class="new-story-button" id="new-story-button"><span>＋</span> Save a story</button>
+            </aside>
+              <section class="reading-panel" id="reading-panel" aria-label="Selected story"></section>
+              <section class="overview-panel" id="overview-panel" aria-label="Library overview" hidden></section>
+              <section class="graph-panel" id="graph-panel" aria-label="Story connections" hidden></section>
+          </div>
+          <footer class="course-attribution">Sample project developed for <a href="https://www.cs.ubc.ca/~kevinlb/teaching/ai100/" target="_blank" rel="noopener">UBC's AI 100: Introduction to Artificial Intelligence course</a>.</footer>
+        </section>
+      </main>
+    </div>
+    <div id="app-error" class="app-error" role="alert" aria-live="assertive" hidden></div>
+
+    <script id="gizmoapp-config" type="application/json">{{ client_config | tojson }}</script>
+    <script src="{{ shared_asset_base }}boot.js"></script>
+    <script type="module" src="{{ asset_base }}main.js"></script>
+  </body>
+</html>
